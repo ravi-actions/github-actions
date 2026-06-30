@@ -1,0 +1,31 @@
+name: User Input Example
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your username"
+        required: true
+        type: string
+
+      age:
+        description: "Enter your age"
+        required: true
+        type: string
+
+      target_environment:
+        description: "Select the deployment environment"
+        required: true
+        type: environment
+
+jobs:
+  print-inputs:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target_environment }}
+
+    steps:
+      - name: Print user inputs
+        run: |
+          echo "Username: ${{ inputs.username }}"
+          echo "Age: ${{ inputs.age }}"
+          echo "Environment: ${{ inputs.target_environment }}"
