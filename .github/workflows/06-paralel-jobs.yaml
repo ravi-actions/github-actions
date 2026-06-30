@@ -1,0 +1,32 @@
+name: Parallel Jobs with Sleep
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 1 start
+        run: |
+          echo "Job 1 started"
+          sleep 10
+          echo "Job 1 finished"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 2 start
+        run: |
+          echo "Job 2 started"
+          sleep 10
+          echo "Job 2 "
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 3 start
+        run: |
+          echo "Job 3 started"
+          sleep 10
+          echo "Job 3 finished"
