@@ -1,16 +1,19 @@
-name: Timeout Example
+name: Concurrency Example
 
 on:
   workflow_dispatch:
 
+concurrency:
+  group: my-workflow
+  cancel-in-progress: false
+
 jobs:
-  timeout-demo:
+  demo:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
 
     steps:
-      - name: Print message
-        run: echo "This job has a timeout of 5 minutes."
-
-      - name: Simulate a long-running task
-        run: sleep 600
+      - name: Start
+        run: |
+          echo "Workflow started..."
+          sleep 60
+          echo "Workflow completed."

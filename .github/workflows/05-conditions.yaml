@@ -1,0 +1,13 @@
+name: Main Branch Only Job
+
+on:
+  push:
+
+jobs:
+  run-only-on-main:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "This job runs only when pushed to MAIN branch"
