@@ -1,0 +1,16 @@
+name: Timeout Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  timeout-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Print message
+        run: echo "This job has a timeout of 5 minutes."
+
+      - name: Simulate a long-running task
+        run: sleep 600
